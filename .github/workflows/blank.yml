@@ -12,7 +12,9 @@ jobs:
       run: |
         echo 1 - Extrair
             tar -xvzf linux_phat_client.tgz
-        echo 2 - Lista
+        echo 2 - Instalar Lib
+            sudo apt-get install firefox
+        echo 3 - Instalar VPN
             chmod +x ./linux_phat_client/install_linux_phat_client.sh
             sudo ./linux_phat_client/install_linux_phat_client.sh
       shell: bash
