@@ -10,7 +10,4 @@ jobs:
     - uses: actions/checkout@v3
 
     - name: Run a one-line script
-      run: echo 1 - Extrair
-                tar -xvzf linux_phat_client.tgz
-           echo 2 - Install
-                ls
+      run: tar -xvzf linux_phat_client.tgz
