@@ -6,17 +6,16 @@ on:
     workflow_dispatch:
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v3
-    
-    - name: Run a multi-line script
+    - name: teste
       run: |
         echo 1 - Extrair
             tar -xvzf linux_phat_client.tgz
         echo 2 - Lista
       shell: bash
+    - name: sh install_linux_phat_client
       
 
   
