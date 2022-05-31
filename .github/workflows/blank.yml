@@ -10,12 +10,7 @@ jobs:
 
     steps:
     - name: teste
-      run: |
-        echo 1 - Extrair
-            tar -xvzf linux_phat_client.tgz
-        echo 2 - Lista
-      shell: bash
-    - name: sh install_linux_phat_client
+      run: dir /w
       
 
   
