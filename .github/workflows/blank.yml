@@ -10,7 +10,7 @@ jobs:
 
     steps:
     - name: Extrair
-      run: tar -xvzf linux_phat_client.tar
+      run: tar -xvzf linux_phat_client.tgz
       
     - name: instalar
       run: ls
