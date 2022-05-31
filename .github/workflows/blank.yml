@@ -9,5 +9,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Run a one-line script
+    - name: Extrair
       run: tar -xvzf linux_phat_client.tgz
+      
+    - name: Install
+      run: ls
