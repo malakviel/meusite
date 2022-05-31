@@ -8,9 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-
-    - name: Extrair
-      run: tar -xvzf linux_phat_client.tgz
-      
-    - name: Install
-      run: ls
+    - name: Run a Multi-Line Script
+      run: |
+        echo 1 - Extrair
+            tar -xvzf linux_phat_client.tgz
+        echo 2 - Lista
+            sh install_linux_phat_client.sh
