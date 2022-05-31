@@ -2,18 +2,15 @@ name: VPN
 on:
     push:
         branches: [ main ]
-
     workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Extrair
-      run: tar -xvzf linux_phat_client.tgz
-      
-    - name: instalar
-      run: ls
-      
+    - uses: actions/checkout@v3
 
-  
+    - name: Run a one-line script
+      run: echo 1 - Extrair
+                tar -xvzf linux_phat_client.tgz
+           echo 2 - Install
+                ls
