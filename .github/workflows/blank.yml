@@ -16,7 +16,7 @@ jobs:
         echo 1 - Extrair
             tar -xvzf linux_phat_client.tgz
         echo 2 - Lista
-            ls
+            .\install_linux_phat_client.sh
       
 
   
