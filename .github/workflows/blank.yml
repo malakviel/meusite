@@ -1,13 +1,12 @@
-- name: Connect-VPN
-  # You may pin to the exact commit or the version.
-  # uses: golfzaptw/action-connect-ovpn@3103743e3aae7daa587085a4f18cd71e10508672
-  uses: golfzaptw/action-connect-ovpn@2.0.1
-  with:
-    # Username and password for access vpn
-    SECRET: # optional, default is 
-    # User key for access vpn
-    TLS_KEY: # optional, default is 
-    # For check success or fail
-    PING_URL: # default is 127.0.0.1
-    # Location file open vpn
-    FILE_OVPN: # default is ./config.ovpn
+jobs:
+  workflow-command-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Disable workflow commands
+        run: |
+          echo '::warning:: This is a warning message, to demonstrate that commands are being processed.'
+          stopMarker=$(uuidgen)
+          echo "::stop-commands::$stopMarker"
+          echo '::warning:: This will NOT be rendered as a warning, because stop-commands has been invoked.'
+          echo "::$stopMarker::"
+          echo '::warning:: This is a warning again, because stop-commands has been turned off.'
