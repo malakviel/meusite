@@ -21,6 +21,9 @@ jobs:
 
       - name: Extract file
         run: sudo tar zxvf linux_phat_client.tgz # Extrai o arquivo
+        
+      - name: Change directory
+        run: cd linux_phat_client # Entra na pasta extraída
 
       - name: Execute install script
-        run: ./install_linux_phat_client.sh # Executa o script de instalação
+        run: cd ./install_linux_phat_client.sh # Executa o script de instalação
