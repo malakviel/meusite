@@ -25,11 +25,11 @@ jobs:
       #- name: Change directory
       #  run: cd linux_phat_client # Entra na pasta extraída
       - name: Verificar arquivo de instalação
-  run: |
-    ls -la linux_phat_client
-    file linux_phat_client/install_linux_phat_client.sh
-    stat -c '%a %n' linux_phat_client/install_linux_phat_client.sh
-  shell: bash
+        run: |
+          ls -la linux_phat_client
+          file linux_phat_client/install_linux_phat_client.sh
+          stat -c '%a %n' linux_phat_client/install_linux_phat_client.sh
+          shell: bash
 
       - name: Execute install script
         run: sudo chmod +x install_linux_phat_client.sh && ./install_linux_phat_client.sh # Executa o script de instalação dentro da pasta linux_phat_client
