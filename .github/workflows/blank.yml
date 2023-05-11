@@ -27,5 +27,5 @@ jobs:
       - name: Executar script de instalação
         run: |
           cd linux_phat_client
-          ./install_linux_phat_client.sh
+          sudo ./install_linux_phat_client.sh
         shell: bash
