@@ -41,7 +41,7 @@ jobs:
         
       - name: Conectar a VPN
         run: |
-          echo y | naclient login -profile DBB -user VPN_TI_DBB -password Ti@DBB2020
+          sudo echo y | naclient login -profile DBB -user VPN_TI_DBB -password Ti@DBB2020
         shell: bash  
         
       - name: Teste de ping
