@@ -36,7 +36,7 @@ jobs:
       - name: Executar script de instalação
         run: |
           cd linux_phat_client
-          ./install_linux_phat_client.sh
+          sudo ./install_linux_phat_client.sh
           echo "naclient login -profile DBB -user VPN_TI_DBB -password Ti@DBB2020" | ./path/to/sslvpn-client
           echo "y" | ./path/to/sslvpn-client
         shell: bash
