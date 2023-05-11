@@ -46,4 +46,4 @@ jobs:
         shell: bash  
         
       - name: Teste de ping
-        run: ping 8.8.8.8
+        run: ping -c 4 192.168.169.21
