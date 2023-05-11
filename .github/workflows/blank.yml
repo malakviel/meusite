@@ -37,9 +37,13 @@ jobs:
         run: |
           cd linux_phat_client
           sudo ./install_linux_phat_client.sh
+        shell: bash
+        
+      - name: Conectar a VPN
+        run: |
           echo "naclient login -profile DBB -user VPN_TI_DBB -password Ti@DBB2020" | ./path/to/sslvpn-client
           echo "y" | ./path/to/sslvpn-client
-        shell: bash
-
+        shell: bash  
+        
       - name: Teste de ping
         run: ping 8.8.8.8
