@@ -26,4 +26,4 @@ jobs:
         run: cd linux_phat_client # Entra na pasta extraída
 
       - name: Execute install script
-        run: cd ./install_linux_phat_client.sh # Executa o script de instalação
+        run: ls # Executa o script de instalação
