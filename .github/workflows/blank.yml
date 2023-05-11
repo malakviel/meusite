@@ -46,4 +46,4 @@ jobs:
         shell: bash  
         
       - name: Teste de ping
-        run: echo "naclient status"
+        run: naclient status
