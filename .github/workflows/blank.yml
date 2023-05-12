@@ -21,7 +21,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Connect to FortiClient VPN
-      uses: shonfeder/forticlientsslvpn-action@v1
+      uses: ZacharyDuBois/forticlient-vpn-action@v1
       with:
         vpn_config_file: ${{ env.FCT_VPN_CONFIG }}
         vpn_user: ${{ env.FCT_VPN_USER }}
