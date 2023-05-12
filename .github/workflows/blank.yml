@@ -24,7 +24,6 @@ jobs:
           ' | sudo tee /etc/apt/preferences.d/mozilla-firefox
           echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";' | sudo tee /etc/apt/apt.conf.d/51unattended-upgrades-firefox
           sudo apt-get install firefox -y
-          sudo apt install ubuntu-desktop -y
 
       - name: Copy file to root
         run: sudo cp linux_phat_client.tgz / # Copia o arquivo para a raiz do sistema
