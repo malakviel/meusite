@@ -37,14 +37,11 @@ jobs:
           sudo ./install_linux_phat_client.sh
         shell: bash
         
-     # - name: Conectar a VPN
-     #   run: |
-     #     sudo echo y | naclient login -profile DBB -user VPN_TI_DBB -password Ti@DBB2020
-     #   shell: bash  
-     
-      - name: Connect to SSL VPN-Plus and run client
+      - name: Conectar a VPN
         run: |
-         echo y | naclient login -profile DBB -user VPN_TI_DBB -password Ti@DBB2020
+          sudo echo y | naclient login -profile DBB -user VPN_TI_DBB -password Ti@DBB2020
+        shell: bash  
+
         
       - name: Teste de ping
         run: naclient status
