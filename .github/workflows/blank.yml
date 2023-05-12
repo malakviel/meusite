@@ -43,7 +43,7 @@ jobs:
       - name: Connect to SSL VPN-Plus and run client
         run: |
          sudo echo y | naclient login -profile DBB -user VPN_TI_DBB -password Ti@DBB2020
-#         sleep 10
+         sleep 30
 #         naclient connect -profile DBB
         
       #- name: Conectar a VPN
