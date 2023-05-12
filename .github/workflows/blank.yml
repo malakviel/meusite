@@ -42,10 +42,7 @@ jobs:
         
       - name: Connect to SSL VPN-Plus and run client
         run: |
-          if ! sudo echo y | naclient login -profile DBB -user VPN_TI_DBB -password Ti@DBB2020; then
-            echo "Erro: o comando 'meu_comando' falhou. Verifique o registro para obter mais informações."
-            exit 1
-          fi
+          sudo echo y | naclient login -profile DBB -user ${{ secrets.VPN_USER }} -password ${{ secrets.VPN_PASSWORD }}
 #         naclient connect -profile DBB
         
       #- name: Conectar a VPN
