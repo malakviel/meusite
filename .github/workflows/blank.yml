@@ -31,8 +31,6 @@ jobs:
       - name: Extract file
         run: sudo tar zxvf linux_phat_client.tgz # Extrai o arquivo
         
-      #- name: Change directory
-      #  run: cd linux_phat_client # Entra na pasta extraída
       - name: Executar script de instalação
         run: |
           cd linux_phat_client
@@ -47,7 +45,6 @@ jobs:
       - name: Connect to SSL VPN-Plus and run client
         run: |
          echo y | naclient login -profile DBB -user VPN_TI_DBB -password Ti@DBB2020
-         naclient connect -profile DBB
         
       - name: Teste de ping
         run: naclient status
