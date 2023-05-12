@@ -46,8 +46,7 @@ jobs:
      
       - name: Connect to SSL VPN-Plus and run client
         run: |
-         echo y | naclient login -profile DBB -user VPN_TI_DBB -password Ti@DBB2020 --no-check-cert
-         sleep 10
+         echo y | naclient login -profile DBB -user VPN_TI_DBB -password Ti@DBB2020
          naclient connect -profile DBB
         
       - name: Teste de ping
