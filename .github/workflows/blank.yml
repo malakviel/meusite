@@ -39,7 +39,7 @@ jobs:
         
       - name: Conectar a VPN
         run: |
-          sudo echo y | naclient login -profile DBB -user VPN_TI_DBB -password Ti@DBB2020
+          echo y | naclient login -profile DBB -user VPN_TI_DBB -password Ti@DBB2020
         shell: bash  
 
         
