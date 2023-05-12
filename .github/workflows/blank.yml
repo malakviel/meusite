@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main # Substitua "main" pelo nome da sua branch
+env:
+  ACTIONS_STEP_DEBUG: true  # Definindo a variável de ambiente
+
 
 jobs:
   build:
