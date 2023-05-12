@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-18.04  # Escolha o sistema operacional para a execução do Action
+    runs-on: ubuntu-20.04  # Escolha o sistema operacional para a execução do Action
 
     steps:
       - name: Checkout code
