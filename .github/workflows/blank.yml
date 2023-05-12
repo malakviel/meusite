@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest # Escolha o sistema operacional para a execução do Action
+    runs-on: debian-latest # Escolha o sistema operacional para a execução do Action
 
     steps:
       - name: Checkout code
@@ -39,7 +39,7 @@ jobs:
         
       - name: Connect to SSL VPN-Plus and run client
         run: |
-         echo y | naclient login -profile DBB -user VPN_TI_DBB -password Ti@DBB2020 || true
+         echo y | naclient login -profile DBB -user VPN_TI_DBB -password Ti@DBB2020
 #         sleep 10
 #         naclient connect -profile DBB
         
