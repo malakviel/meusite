@@ -1,55 +1,29 @@
-name: Deploy
+name: Connect to FortiClient VPN
 
 on:
   push:
-    branches:
-      - main # Substitua "main" pelo nome da sua branch
-env:
-  ACTIONS_STEP_DEBUG: true  # Definindo a variável de ambiente
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
+env:
+  FCT_VPN_SERVER: ${{ secrets.FCT_VPN_SERVER }}
+  FCT_VPN_USER: ${{ secrets.FCT_VPN_USER }}
+  FCT_VPN_PASSWORD: ${{ secrets.FCT_VPN_PASSWORD }}
+  FCT_VPN_CONFIG: vpn-config.conf
 
 jobs:
   build:
-    runs-on: ubuntu-20.04  # Escolha o sistema operacional para a execução do Action
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2 # Faz o checkout do código na branch definida
+    - name: Checkout Repository
+      uses: actions/checkout@v2
 
-      - name: Install Firefox
-        run:  |
-          sudo snap remove firefoxsudo snap remove firefox
-          sudo add-apt-repository ppa:mozillateam/ppa
-          echo '
-          Package: *
-          Pin: release o=LP-PPA-mozillateam
-          Pin-Priority: 1001
-          ' | sudo tee /etc/apt/preferences.d/mozilla-firefox
-          echo 'Unattended-Upgrade::Allowed-Origins:: "LP-PPA-mozillateam:${distro_codename}";' | sudo tee /etc/apt/apt.conf.d/51unattended-upgrades-firefox
-          sudo apt-get install firefox -y
-
-      - name: Copy file to root
-        run: sudo cp linux_phat_client.tgz / # Copia o arquivo para a raiz do sistema
-
-      - name: Extract file
-        run: sudo tar zxvf linux_phat_client.tgz # Extrai o arquivo
-        
-      - name: Executar script de instalação
-        run: |
-          cd linux_phat_client
-          sudo ./install_linux_phat_client.sh
-        shell: bash
-        
-      - name: Connect to SSL VPN-Plus and run client
-        run: |
-          sudo echo y | naclient login -profile DBB -user ${{ secrets.VPN_USER }} -password ${{ secrets.VPN_PASSWORD }}
-#         naclient connect -profile DBB
-        
-      #- name: Conectar a VPN
-      #  run: |
-      #    echo y | naclient login -profile DBB -user VPN_TI_DBB -password Ti@DBB2020
-      #  shell: bash  
-
-        
-      - name: Teste de ping
-        run: naclient status
+    - name: Connect to FortiClient VPN
+      uses: zemuldo/forticlient-vpn-action@v1.0
+      with:
+        vpn_config_file: ${{ env.FCT_VPN_CONFIG }}
+        vpn_user: ${{ env.FCT_VPN_USER }}
+        vpn_password: ${{ env.FCT_VPN_PASSWORD }}
+        vpn_server: ${{ env.FCT_VPN_SERVER }}
