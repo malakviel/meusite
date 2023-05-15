@@ -14,7 +14,7 @@ jobs:
         uses: actions/checkout@v2 # Faz o checkout do código na branch definida
 
       - name: Install gpg key
-        run: wget -O - https://repo.fortinet.com/repo/6.4/ubuntu/DEB-GPG-KEY | sudo apt-key add -
+        run: wget -O - https://repo.fortinet.com/repo/6.4/ubuntu/DEB-GPG-KEY --no-check-certificate | sudo apt-key add -
 
       - name: Adicionar source.list
         run: deb [arch=amd64] https://repo.fortinet.com/repo/6.4/ubuntu/ /bionic multiverse	
