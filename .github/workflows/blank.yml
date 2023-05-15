@@ -17,9 +17,9 @@ jobs:
         run: |
            sudo apt-get update
            sudo apt-get install openfortivpn
-      - name: Create config.conf
-        run: |
-          echo -e "host = 177.124.242.118\nport = 10443\nusername = marcelo.vasconcelos\npassword = Malkahu#100" > config.conf
+#      - name: Create config.conf
+ #       run: |
+  #        echo -e "host = 177.124.242.118\nport = 10443\nusername = marcelo.vasconcelos\npassword = Malkahu#100" > config.conf
       - name: Start FortiClient VPN Agent
         run: |
-          sudo openfortivpn config.conf
+          sudo openfortivpn host:177.124.242.118:10443 -u marcelo.vasconcelos -p Malkahu#100
