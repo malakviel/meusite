@@ -17,7 +17,10 @@ jobs:
         run: wget -O - https://repo.fortinet.com/repo/6.4/ubuntu/DEB-GPG-KEY --no-check-certificate | sudo apt-key add -
 
       - name: Adicionar source.list
-        run: deb [arch=amd64] https://repo.fortinet.com/repo/6.4/ubuntu/ /bionic multiverse
+        run: |
+               sudo apt-get install software-properties-common
+               sudo add-apt-repository "deb [arch=amd64] https://repo.fortinet.com/repo/6.4/ubuntu/ bionic multiverse"
+        
 
       - name: Atualizar lista de pacotes
         run: sudo apt-get update	
