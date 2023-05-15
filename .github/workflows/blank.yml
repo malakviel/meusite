@@ -23,4 +23,5 @@ jobs:
           
       - name: Install FortiClient VPN Agent
         run: |
-          ./fortivpn connect <DBB> -u <marcelo.vasconcelos>
+          cd /opt/forticlient
+          ./fortivpn edit VPNProfileName
