@@ -10,25 +10,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download FortiClient VPN Agent
-        run: |
-          wget https://links.fortinet.com/forticlient/deb/vpnagent -O forticlient_vpn.deb
+ #     - name: Download FortiClient VPN Agent
+  #      run: |
+  #        wget https://links.fortinet.com/forticlient/deb/vpnagent -O forticlient_vpn.deb
       - name: Install required dependencies
         run: |
            sudo apt-get update
-           sudo apt-get install -y libappindicator1 libnss3-tools
-      - name: Install FortiClient VPN Agent
+           sudo apt-get install openfortivpn
+      - name: Create config.conf
         run: |
-          sudo dpkg -i forticlient_vpn.deb
-          
-      - name: Config FortiClient VPN Agent
+          echo -e "host = 177.124.242.118\nport = 10443\nusername = marcelo.vasconcelos\npassword = Malkahu#100" > config.conf
+      - name: Start FortiClient VPN Agent
         run: |
-          cd /opt/forticlient
-          ./fortivpn edit VPNProfileName
-          echo "177.124.242.118" | ./fortivpn add
-          echo "10443" | ./fortivpn set sslvpn-port
-          echo "1" | ./fortivpn set user-auth-type
-          echo "none" | ./fortivpn set client-cert-file
-          echo "none" | ./fortivpn set client-cert-key-file
-          echo "n" | ./fortivpn set invalid-cert-warning
-          ./fortivpn connect VPNProfileName --user:marcelo.vasconcelos
+          sudo openfortivpn config.conf
