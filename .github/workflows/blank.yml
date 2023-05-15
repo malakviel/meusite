@@ -24,7 +24,4 @@ jobs:
       - name: Config FortiClient VPN Agent
         run: |
           cd /opt/forticlient
-          ./fortivpn edit VPNProfileName
-          177.124.242.118
-          10443
-          
+          ./fortivpn edit VPNProfileName 177.124.242.118 10443
