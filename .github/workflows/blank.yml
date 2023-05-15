@@ -1,29 +1,26 @@
-name: Connect to FortiClient VPN
+name: Deploy
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
-env:
-  FCT_VPN_SERVER: ${{ secrets.FCT_VPN_SERVER }}
-  FCT_VPN_USER: ${{ secrets.FCT_VPN_USER }}
-  FCT_VPN_PASSWORD: ${{ secrets.FCT_VPN_PASSWORD }}
-  FCT_VPN_CONFIG: vpn-config.conf
+    branches:
+      - main # Substitua "main" pelo nome da sua branch
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # Escolha o sistema operacional para a execução do Action
 
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v2
-
-    - name: Connect to FortiClient VPN
-      uses: ZacharyDuBois/forticlient-vpn-action@v1
-      with:
-        vpn_config_file: ${{ env.FCT_VPN_CONFIG }}
-        vpn_user: ${{ env.FCT_VPN_USER }}
-        vpn_password: ${{ env.FCT_VPN_PASSWORD }}
-        vpn_server: ${{ env.FCT_VPN_SERVER }}
+      - name: Checkout code
+        uses: actions/checkout@v2 # Faz o checkout do código na branch definida
+		
+      - name: Install gpg key
+        run: wget -O - https://repo.fortinet.com/repo/6.4/ubuntu/DEB-GPG-KEY | sudo apt-key add -
+		
+      - name: Adicionar source.list
+        run: deb [arch=amd64] https://repo.fortinet.com/repo/6.4/ubuntu/ /bionic multiverse	
+		
+      - name: Atualizar lista de pacotes
+        run: sudo apt-get update	
+		
+      - name: Atualizar lista de pacotes
+        run: sudo apt install forticlient
