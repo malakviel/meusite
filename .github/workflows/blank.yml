@@ -24,4 +24,11 @@ jobs:
       - name: Config FortiClient VPN Agent
         run: |
           cd /opt/forticlient
-          ./fortivpn edit VPNProfileName 177.124.242.118 10443
+          ./fortivpn edit VPNProfileName
+          echo "177.124.242.118" | ./fortivpn add
+          echo "10443" | ./fortivpn set sslvpn-port
+          echo "1" | ./fortivpn set user-auth-type
+          echo "none" | ./fortivpn set client-cert-file
+          echo "none" | ./fortivpn set client-cert-key-file
+          echo "n" | ./fortivpn set invalid-cert-warning
+          ./fortivpn connect VPNProfileName --user:marcelo.vasconcelos
