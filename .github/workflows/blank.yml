@@ -12,15 +12,15 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2 # Faz o checkout do código na branch definida
-		
+
       - name: Install gpg key
         run: wget -O - https://repo.fortinet.com/repo/6.4/ubuntu/DEB-GPG-KEY | sudo apt-key add -
-		
+
       - name: Adicionar source.list
         run: deb [arch=amd64] https://repo.fortinet.com/repo/6.4/ubuntu/ /bionic multiverse	
-		
+
       - name: Atualizar lista de pacotes
         run: sudo apt-get update	
-		
+
       - name: Atualizar lista de pacotes
         run: sudo apt install forticlient
