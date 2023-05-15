@@ -13,6 +13,10 @@ jobs:
       - name: Download FortiClient VPN Agent
         run: |
           wget https://links.fortinet.com/forticlient/deb/vpnagent -O forticlient_vpn.deb
+      - name: Install required dependencies
+        run: |
+           sudo apt-get update
+           sudo apt-get install -y libappindicator1 libnss3-tools
       - name: Install FortiClient VPN Agent
         run: |
           sudo dpkg -i forticlient_vpn.deb
