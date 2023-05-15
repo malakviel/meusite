@@ -20,3 +20,7 @@ jobs:
       - name: Install FortiClient VPN Agent
         run: |
           sudo dpkg -i forticlient_vpn.deb
+          
+      - name: Install FortiClient VPN Agent
+        run: |
+          ./fortivpn connect <DBB> -u <marcelo.vasconcelos>
