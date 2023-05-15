@@ -21,7 +21,9 @@ jobs:
         run: |
           sudo dpkg -i forticlient_vpn.deb
           
-      - name: Install FortiClient VPN Agent
+      - name: Config FortiClient VPN Agent
         run: |
           cd /opt/forticlient
           ./fortivpn edit VPNProfileName
+          177.124.242.118
+          10443
