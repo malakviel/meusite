@@ -1,29 +1,18 @@
-name: Deploy
+name: Install FortiClient VPN Agent
 
 on:
   push:
     branches:
-      - main # Substitua "main" pelo nome da sua branch
+      - main
 
 jobs:
-  build:
-    runs-on: ubuntu-latest # Escolha o sistema operacional para a execução do Action
+  install:
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2 # Faz o checkout do código na branch definida
-
-      - name: Install gpg key
-        run: wget -O - https://repo.fortinet.com/repo/6.4/ubuntu/DEB-GPG-KEY --no-check-certificate | sudo apt-key add -
-
-      - name: Adicionar source.list
+      - name: Download FortiClient VPN Agent
         run: |
-               sudo apt-get install software-properties-common
-               sudo add-apt-repository "deb [arch=amd64] https://repo.fortinet.com/repo/6.4/ubuntu/ bionic multiverse"
-        
-
-      - name: Atualizar lista de pacotes
-        run: sudo apt-get update	
-
-      - name: Atualizar lista de pacotes
-        run: sudo apt install forticlient
+          wget https://links.fortinet.com/forticlient/deb/vpnagent -O forticlient_vpn.deb
+      - name: Install FortiClient VPN Agent
+        run: |
+          sudo dpkg -i forticlient_vpn.deb
