@@ -25,6 +25,6 @@ jobs:
         run: |
           cd /opt/forticlient
           ./fortivpn edit VPNProfileName
-          echo "177.124.242.118"
-          echo "10443"
+          177.124.242.118
+          10443
           
