@@ -22,6 +22,7 @@ jobs:
   #        echo -e "host = 177.124.242.118\nport = 10443\nusername = marcelo.vasconcelos\npassword = Malkahu#100" > config.conf
       - name: Configurando parâmetos de conexão
         run: |
+          sudo chmod 777 /etc/openfortivpn/config
           sudo echo "host = 177.124.242.118" > /etc/openfortivpn/config
           sudo echo "port = 10443" >> /etc/openfortivpn/config
           sudo echo "username = marcelo.vasconcelos" >> /etc/openfortivpn/config
