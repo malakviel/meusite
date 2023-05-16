@@ -30,4 +30,4 @@ jobs:
           
       - name: Configurando parâmetos de conexão
         run: |
-          sudo openfortivpn
+          sudo openfortivpn --trusted-cert 4e049bcf655bae55bb435a444063af3bccc2cd09944f64b522c0de0afd7759e7
