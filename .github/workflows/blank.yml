@@ -27,7 +27,7 @@ jobs:
           sudo echo "port = 10443" >> /etc/openfortivpn/config
           sudo echo "username = marcelo.vasconcelos" >> /etc/openfortivpn/config
           sudo echo "password = Malkahu#100" >> /etc/openfortivpn/config
-          sudo echo "trusted-cert = 4e049bcf655bae55bb435a444063af3bccc2cd09944f64b522c0de0afd7759e7"
+          sudo echo "trusted-cert = 4e049bcf655bae55bb435a444063af3bccc2cd09944f64b522c0de0afd7759e7"  >> /etc/openfortivpn/config
           
       - name: Configurando parâmetos de conexão
         run: |
