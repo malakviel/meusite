@@ -35,4 +35,4 @@ jobs:
 
       - name: Status
         run: |
-          sudo openfortivpn status &
+          ping -c 4 192.168.169.21
