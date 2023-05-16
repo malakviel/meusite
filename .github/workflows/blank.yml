@@ -1,4 +1,4 @@
-name: Install FortiClient VPN Agent
+name: Install FortiClient VPN
 
 on:
   push:
@@ -13,21 +13,21 @@ jobs:
  #     - name: Download FortiClient VPN Agent
   #      run: |
   #        wget https://links.fortinet.com/forticlient/deb/vpnagent -O forticlient_vpn.deb
-      - name: Install required dependencies
+      - name: Instalação das dependencias
         run: |
            sudo apt-get update
            sudo apt-get install openfortivpn
 #      - name: Create config.conf
  #       run: |
   #        echo -e "host = 177.124.242.118\nport = 10443\nusername = marcelo.vasconcelos\npassword = Malkahu#100" > config.conf
-      - name: Configurando parâmetos de conexão
+      - name: Configurando parâmetros de conexão
         run: |
           sudo chmod 777 /etc/openfortivpn/config
-          sudo echo "host = 177.124.242.118" > /etc/openfortivpn/config
+          sudo echo "host = ${{ secrets.VPN_HOST }}" > /etc/openfortivpn/config
           sudo echo "port = 10443" >> /etc/openfortivpn/config
-          sudo echo "username = marcelo.vasconcelos" >> /etc/openfortivpn/config
-          sudo echo "password = Malkahu#100" >> /etc/openfortivpn/config
-          sudo echo "trusted-cert = 4e049bcf655bae55bb435a444063af3bccc2cd09944f64b522c0de0afd7759e7"  >> /etc/openfortivpn/config
+          sudo echo "username = ${{ secrets.VPN_USERNAME }}" >> /etc/openfortivpn/config
+          sudo echo "password = ${{ secrets.VPN_PASSWORD }}" >> /etc/openfortivpn/config
+          sudo echo "trusted-cert = ${{ secrets.VPN_CERT }}"  >> /etc/openfortivpn/config
           
       - name: Conectando a VPN
         run: |
