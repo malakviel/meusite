@@ -29,6 +29,10 @@ jobs:
           sudo echo "password = Malkahu#100" >> /etc/openfortivpn/config
           sudo echo "trusted-cert = 4e049bcf655bae55bb435a444063af3bccc2cd09944f64b522c0de0afd7759e7"  >> /etc/openfortivpn/config
           
-      - name: Configurando parâmetos de conexão
+      - name: Conectando a VPN
         run: |
           sudo openfortivpn &
+
+      - name: Status
+        run: |
+          sudo openfortivpn status &
