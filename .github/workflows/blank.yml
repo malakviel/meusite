@@ -20,6 +20,13 @@ jobs:
 #      - name: Create config.conf
  #       run: |
   #        echo -e "host = 177.124.242.118\nport = 10443\nusername = marcelo.vasconcelos\npassword = Malkahu#100" > config.conf
-      - name: Start FortiClient VPN Agent
+      - name: Configurando parâmetos de conexão
         run: |
-          sudo openfortivpn host:177.124.242.118:10443 -u marcelo.vasconcelos -p Malkahu#100
+          echo "host = 177.124.242.118" > /etc/openfortivpn/config
+          echo "port = 10443" >> /etc/openfortivpn/config
+          echo "username = marcelo.vasconcelos" >> /etc/openfortivpn/config
+          echo "password = Malkahu#100" >> /etc/openfortivpn/config
+          
+      - name: Configurando parâmetos de conexão
+        run: |
+          sudo openfortivpn
