@@ -35,4 +35,4 @@ jobs:
 
       - name: Status
         run: |
-          ping 192.168.169.25
+          ping viznugetserver.vizcaya.com.br
